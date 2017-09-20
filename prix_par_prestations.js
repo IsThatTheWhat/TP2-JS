@@ -35,7 +35,7 @@ function updatePrixPrestation(tag, id){
 	$tr_children[2].innerHTML = "0 €"
 
 	updateBilan()
-
+ 
 }
 
 function updateBilan(){
@@ -47,6 +47,7 @@ function updateBilan(){
 		$children = $tbody_children[i].children
 		$value = $children[4].innerHTML.split(' ')
 		$montant += parseFloat($value[0])
+		console.log($value)
 	}
 
 	document.getElementById("somme_value").innerHTML = $montant + " €";
