@@ -1,9 +1,6 @@
 <?php
     include 'database.php';
 
-
-
-
     $json = json_decode($_POST["json"]);
 
     $date = date('Y-m-d H:i:s', strtotime($json->{'dateCommande'}));

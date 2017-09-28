@@ -10,4 +10,20 @@
 	$reponse= $pdo->query($req);	
 	$donnees=$reponse->fetchAll();
 
-	echo json_encode($donnees[0]);
+	$attributes['client_infos'] = $donnees[0];
+
+    $req ="SELECT * FROM Commande where Commande.codeClient={$id}";
+    $reponse= $pdo->query($req);
+    $donnees=$reponse->fetchAll();
+
+    /*$req ="SELECT * FROM Commande, Ligne where
+              Commande.numCommande = Ligne.numCommande AND
+              Commande.codeClient={$id}";
+    $reponse= $pdo->query($req);
+    $donnees=$reponse->fetchAll();*/
+
+    $attributes['commandes'] = $donnees;
+
+
+    echo json_encode($attributes);
+

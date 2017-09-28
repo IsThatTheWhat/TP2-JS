@@ -59,73 +59,95 @@
               </div>
           </div>
 
-          <div class="row">
-              <div class="col-md-2">
-                  <button class="btn btn-success" id="ajout_ligne">Ajouter une ligne</button>
-              </div>
-              <div class="col-md-2">
-                  <button class="btn btn-danger" id="supprime_ligne">Supprimer la dernière ligne</button>
+          <div id="commandes_div" style="visibility: hidden">
+              <div class="col-4">
+                  <div class="form-group">
+                      <select class="form-control" id="commandes" onchange="getLignesCommande(this.value)">
+                      </select>
+                  </div>
               </div>
           </div>
 
-          <div style="margin-top: 10px">
-              <table class="table">
-                  <thead class="thead-inverse">
-                  <tr>
-                      <th>Code Prestation</th>
-                      <th>Désignation</th>
-                      <th>Prix Unitaire</th>
-                      <th>Quantité</th>
-                      <th>Montant</th>
-                  </tr>
-                  </thead>
-                  <tbody id="table_body">
-                  <tr>
-                      <td id="prestation_id_1">0</td>
-                      <td>
-                          <div class="form-group">
-                              <select class="form-control" name="prestation_select" id="select_1" onchange="updatePrixPrestation(1, this.value)">
-                              </select>
-                          </div>
-                      </td>
-                      <td id="prix_prestation_1">0 €</td>
-                      <td>
-                          <div class="form-group row">
-                              <div>
-                                  <input type="text" class="form-control" id="quantite_1" placeholder="10" onchange="updateLigne(1, this.value)">
+          <div id="tableau" style="visibility: hidden">
+              <div class="row" style="padding-top: 20px">
+                  <div class="col-md-2">
+                      <button class="btn btn-success" id="nouvelle_commande">Nouvelle commande</button>
+                  </div>
+                  <div class="col-md-2">
+                      <button class="btn btn-primary" id="ajout_ligne">Ajouter une ligne</button>
+                  </div>
+                  <div class="col-md-2">
+                      <button class="btn btn-danger" id="supprime_ligne">Supprimer la dernière ligne</button>
+                  </div>
+              </div>
+
+              <div style="margin-top: 10px">
+                  <table class="table">
+                      <thead class="thead-inverse">
+                      <tr>
+                          <th>Code Prestation</th>
+                          <th>Désignation</th>
+                          <th>Prix Unitaire</th>
+                          <th>Quantité</th>
+                          <th>Montant</th>
+                      </tr>
+                      </thead>
+                      <tbody id="table_body">
+                      <tr>
+                          <td id="prestation_id_1">0</td>
+                          <td>
+                              <div class="form-group">
+                                  <select class="form-control" name="prestation_select" id="select_1" onchange="updatePrixPrestation(1, this.value)">
+                                  </select>
                               </div>
-                          </div>
-                      </td>
-                      <td id="total_ligne_1">0 €</td>
-                  </tr>
-                  </tbody>
-              </table>
-          </div>
+                          </td>
+                          <td id="prix_prestation_1">0 €</td>
+                          <td>
+                              <div class="form-group row">
+                                  <div>
+                                      <input type="text" class="form-control" id="quantite_1" placeholder="10" onchange="updateLigne(1, this.value)" value="">
+                                  </div>
+                              </div>
+                          </td>
+                          <td id="total_ligne_1">0 €</td>
+                      </tr>
+                      </tbody>
+                  </table>
+              </div>
 
-          <div class="row">
-              <div class="col-md-2"></div>
-              <div class="col-md-2"></div>
-              <div class="col-md-4"><h3 id="carte">Votre carte est verte</h3></div>
-              <div class="col-md-4">
-                  <div class="row">
-                      <div class="col-md-6"><h3>Somme</h3></div>
-                      <div class="col-md-6"><h3 id="somme">0 €</h3></div>
-                  </div>
-                  <div class="row">
-                      <div class="col-md-6"><h3>remise</h3></div>
-                      <div class="col-md-6"><h3 id="remise">0 %</h3></div>
-                  </div>
-                  <div class="row">
-                      <div class="col-md-6"><h1>Due</h1></div>
-                      <div class="col-md-6"><h1><span class="badge badge-primary" id="total">0 €</span></h1></div>
+              <div class="row">
+                  <div class="col-md-2"></div>
+                  <div class="col-md-2"></div>
+                  <div class="col-md-4"><h3 id="carte">Votre carte est verte</h3></div>
+                  <div class="col-md-4">
+                      <div class="row">
+                          <div class="col-md-6"><h3>Somme</h3></div>
+                          <div class="col-md-6"><h3 id="somme">0 €</h3></div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-6"><h3>remise</h3></div>
+                          <div class="col-md-6"><h3 id="remise">0 %</h3></div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-6"><h1>Due</h1></div>
+                          <div class="col-md-6"><h1><span class="badge badge-primary" id="total">0 €</span></h1></div>
+                      </div>
                   </div>
               </div>
-          </div>
 
-          <div style="padding-top: 30px">
-              <div class="row justify-content-center">
-                  <div class="col-4">
-                      <button id="commander" class="btn btn-success btn-block btn-lg">Commander</button>
+              <div id="commander_div" style="padding-top: 30px; visibility: hidden">
+                  <div class="row justify-content-center">
+                      <div class="col-4">
+                          <button id="commander" class="btn btn-success btn-block btn-lg">Commander</button>
+                      </div>
+                  </div>
+              </div>
+
+              <div id="update_commande_div" style="padding-top: 30px; visibility: hidden">
+                  <div class="row justify-content-center">
+                      <div class="col-4">
+                          <button id="update_commande" class="btn btn-success btn-block btn-lg">Actualiser la commande</button>
+                      </div>
                   </div>
               </div>
           </div>
