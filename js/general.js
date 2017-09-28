@@ -211,7 +211,7 @@ $(function () {
             document.getElementById("total_ligne_1").innerHTML = "0 €"
 
             var select = document.getElementById("select_1")
-            select[0].value = 0nou
+            select[0].value = 0
             var commande = document.getElementById("commandes")
             console.log(commande)
             commande[0].value = 0
