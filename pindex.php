@@ -10,7 +10,7 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
-    <script type="text/javascript" src="prestations.js"></script>   
+    <script type="text/javascript" src="js/prestations.js"></script>
 
   </head>
   <body>
@@ -148,7 +148,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  
-    <script type="text/javascript" src="general.js"></script>   
-  	<script type="text/javascript" src="prix_par_prestations.js"></script>   
+    <script type="text/javascript" src="js/general.js"></script>
+  	<script type="text/javascript" src="js/prix_par_prestations.js"></script>
   </body>
 </html>
