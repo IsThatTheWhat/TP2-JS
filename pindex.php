@@ -65,7 +65,7 @@
           <button class="btn btn-success" id="ajout_ligne">Ajouter une ligne</button>
         </div>
         <div class="col-md-2">
-          <button class="btn btn-danger" id="supprime_ligne">Supprimer une ligne</button>
+          <button class="btn btn-danger" id="supprime_ligne">Supprimer la dernière ligne</button>
         </div>
       </div>
 
@@ -82,40 +82,22 @@
           </thead>
           <tbody id="table_body">
             <tr>
-              <td>0</td>
+              <td id="prestation_id_1">0</td>
               <td>
                 <div class="form-group">
-                  <select class="form-control" name="prestation_select" onchange="updatePrixPrestation(this, this.value)">
+                  <select class="form-control" name="prestation_select" id="select_1" onchange="updatePrixPrestation(1, this.value)">
                   </select>
                 </div>
               </td>
-              <td>0 €</td>
-              <td>3</td>
-              <td>0 €</td>
-            </tr>
-            <tr>
-              <td>0</td>
+              <td id="prix_prestation_1">0 €</td>
               <td>
-                <div class="form-group">
-                  <select class="form-control" name="prestation_select" onchange="updatePrixPrestation(this, this.value)">
-                  </select>
-                </div>
+                  <div class="form-group row">
+                      <div>
+                          <input type="text" class="form-control" id="quantite_1" placeholder="10" onchange="updateLigne(1, this.value)">
+                      </div>
+                  </div>
               </td>
-              <td>0 €</td>
-              <td>3</td>
-              <td>0 €</td>
-            </tr>
-            <tr>
-              <td>0</td>
-              <td>
-                <div class="form-group">
-                  <select class="form-control" name="prestation_select" onchange="updatePrixPrestation(this, this.value)">
-                  </select>
-                </div>
-              </td>
-              <td>0 €</td>
-              <td>3</td>
-              <td>0 €</td>
+              <td id="total_ligne_1">0 €</td>
             </tr>
           </tbody>
         </table>
@@ -124,19 +106,19 @@
       <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-2"></div>
-        <div class="col-md-4"><h3>Votre carte est verte</h3></div>
+        <div class="col-md-4"><h3 id="carte">Votre carte est verte</h3></div>
         <div class="col-md-4">
           <div class="row">
             <div class="col-md-6"><h3>Somme</h3></div>
-            <div class="col-md-6" id="somme_value"><h3>0 €</h3></div>
+            <div class="col-md-6"><h3 id="somme">0 €</h3></div>
           </div>
           <div class="row">
             <div class="col-md-6"><h3>remise</h3></div>
-            <div class="col-md-6"><h3>10%</h3></div>
+            <div class="col-md-6"><h3 id="remise">0 %</h3></div>
           </div>
           <div class="row">
             <div class="col-md-6"><h1>Due</h1></div>
-            <div class="col-md-6"><h1><span class="badge badge-primary">20 €</span></h1></div>
+            <div class="col-md-6"><h1><span class="badge badge-primary" id="total">0 €</span></h1></div>
           </div>          
         </div>
       </div>   

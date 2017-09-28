@@ -4,7 +4,7 @@ function getPrestations(){
 		if (xmlhttp.readyState==4 && xmlhttp.status==200)
 			fillTable(xmlhttp.responseText)
 	} 
-	xmlhttp.open("POST","prestations.php",true); 
+	xmlhttp.open("POST","php/prestations.php",true);
 	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	xmlhttp.send();
 }
