@@ -171,7 +171,6 @@ function getLignesCommande(id){
 
 function updateLignes(json){
     var commandes = JSON.parse(json)
-    console.log(commandes)
     if (commandes.length > 1){
         for (var j = 1; j < commandes.length; j++) {
             addLigne()
@@ -192,6 +191,35 @@ function fillLine(commandes){
         document.getElementById("prix_prestation_"+(i+1)).innerHTML = prix_prestation + " €"
         document.getElementById("quantite_"+(i+1)).value = quantite
         document.getElementById("total_ligne_"+(i+1)).innerHTML = total_ligne + " €"
-
     }
 }
+
+$(function () {
+    $(document).ready(function() {
+        document.getElementById('nouvelle_commande').addEventListener('click', function (e) {
+            e.preventDefault()
+            var table_body = document.getElementById("table_body")
+            if (table_body.children.length > 1){
+                for (var j = 1; j < table_body.children.length; j++) {
+                    table_body.removeChild(table_body.lastChild)
+                }
+            }
+
+            document.getElementById("prestation_id_1").innerHTML = 0
+            document.getElementById("prix_prestation_1").innerHTML = "0 €"
+            document.getElementById("quantite_1").value = null
+            document.getElementById("total_ligne_1").innerHTML = "0 €"
+
+            var select = document.getElementById("select_1")
+            select[0].value = 0nou
+            var commande = document.getElementById("commandes")
+            console.log(commande)
+            commande[0].value = 0
+
+            updateBilan()
+
+            document.getElementById("update_commande_div").style.visibility = 'hidden'
+            document.getElementById("commander_div").style.visibility = 'visible'
+        })
+    });
+});
